@@ -1,0 +1,37 @@
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.alert{
+  z-index: 1;
+  top: 0;
+  right: 0;
+}
+
+.banner {
+  background-image: url("https://source.unsplash.com/rcYE6UoIjWU/1600x900");
+  background-size: cover;
+  background-position-y: center;
+  height: 630px;
+}
+
+.glass {
+  backdrop-filter: blur(10px) saturate(100%) contrast(45%) brightness(130%);
+  border-radius: 5px;
+}
+
+.bounce {
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
