@@ -17,7 +17,7 @@ function App() {
   return (
     <UserProvider>
     <PlacesProvider>
-      <Router basename='/booking-app'>
+      <Router basename='/booking-app-m'>
         <Container>
           <NavBar/>
           <Alert />
