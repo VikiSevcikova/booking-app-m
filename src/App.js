@@ -4,7 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import Detail from "./components/DetailPage/Detail";
 
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import {Container} from 'react-bootstrap';
 import NavBar from "./components/NavBar";
 import {PlacesProvider} from './context/PlacesContext';
@@ -17,7 +17,7 @@ function App() {
   return (
     <UserProvider>
     <PlacesProvider>
-      <Router basename='/'>
+      <Router basename={process.env.PUBLIC_URL}>
         <Container>
           <NavBar/>
           <Alert />
