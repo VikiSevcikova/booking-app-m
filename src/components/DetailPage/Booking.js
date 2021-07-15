@@ -56,7 +56,7 @@ const Booking = ({place}) => {
       const stripe = await stripePromise;
       
         const response = await axios.post(
-        "/payment",
+        "https://booking-app-backend.herokuapp.com/payment",
         {
           booking: booking,
           customer: loggedInUser.email
