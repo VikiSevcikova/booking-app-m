@@ -55,21 +55,18 @@ function Detail() {
               </p>
               <Photos/>
               <Row>
-                <Col lg={8}>
-                  {details.overview.overviewSections.map((item, i) => (
-                    <Overview key={i} overviewSection={item} />
-                  ))}
-                </Col>
-                <Col lg={4}>
+                <Col lg={{span: 4, order: 2}}>
                   <Booking
                     place={{
                       id: id,
-                      name: details.propertyDescription.name,
-                      price:
-                        details.propertyDescription.featuredPrice.currentPrice
-                          .plain,
+                      name: details.propertyDescription.name
                     }}
                   />
+                </Col>
+                <Col lg={{span: 8, order: 1}}>
+                  {details.overview.overviewSections.map((item, i) => (
+                    <Overview key={i} id={i} overviewSection={item} />
+                  ))}
                 </Col>
               </Row>
             </>

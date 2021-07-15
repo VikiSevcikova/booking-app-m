@@ -1,11 +1,23 @@
-import React from "react";
+import React, {useContext} from "react";
 import { Link } from "react-router-dom";
 import { Card, Row, Col, Image } from "react-bootstrap";
 import { BsFillStarFill } from "react-icons/bs";
+import { PlacesContext } from "../../context/PlacesContext";
 
 const PlaceCard = ({ place }) => {
+  const placesContext = useContext(PlacesContext);
+  const {placesDispatch} = placesContext;
+
+  const changePrice = () => {
+    console.log(Math.round(place.ratePlan.price.exactCurrent));
+    placesDispatch({
+      type: "CHANGE_PRICE",
+      payload: Math.round(place.ratePlan.price.exactCurrent)
+    });
+  }
+
   return (
-    <Link to={`/detail/${place.id}`}>
+    <Link to={`/detail/${place.id}`} onClick={changePrice}>
       <Card className="border-top-0 border-left-0 border-right-0">
         <Card.Body>
           <Row>

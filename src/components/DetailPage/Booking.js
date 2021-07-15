@@ -14,8 +14,8 @@ const Booking = ({place}) => {
   const placesContext = useContext(PlacesContext);
   const userContext = useContext(UserContext);
   const { placesState, placesDispatch } = placesContext;
-  const { userState, userDispatch } = userContext;
-  const { checkIn, checkOut, adults, children } = placesState;
+  const { userState } = userContext;
+  const { checkIn, checkOut, adults, children, priceOfSelectedStay } = placesState;
   const { loggedInUser } = userState;
 
   const [totalPrice, setTotalPrice] = useState(place.price);
@@ -56,7 +56,7 @@ const Booking = ({place}) => {
       const stripe = await stripePromise;
       
         const response = await axios.post(
-        "https://booking-app-backend.herokuapp.com/payment",
+        "http://localhost:4000/payment",
         {
           booking: booking,
           customer: loggedInUser.email
@@ -100,15 +100,15 @@ const Booking = ({place}) => {
     useEffect(()=> {
       let one_day = 1000 * 60 * 60 * 24;
       let numberOfNights = Math.round(Math.round(checkOut.getTime() - checkIn.getTime()) / (one_day));
-      console.log(place.price);
-      let price = place.price * (parseInt(adults) + parseInt(children)) * numberOfNights;
+      console.log(priceOfSelectedStay);
+      let price = priceOfSelectedStay * (parseInt(adults) + parseInt(children)) * numberOfNights;
       setTotalPrice(price);
     },[placesState])
   
   return (
     <>
-      <Form onSubmit={reserve} className="sticky-top py-2 mb-5">
-        <div className="bookingCard px-3 py-3 my-5 g-2 align-items-end">
+      <Form onSubmit={reserve} className="sticky-top py-2 mt-5">
+        <div className="bookingCard px-3 py-3 g-2 align-items-end">
           <p><b>${totalPrice} CAD/night</b></p>
           <Row>
           <Col md>

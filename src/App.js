@@ -29,7 +29,7 @@ function App() {
               <HomePage/>
             </Route>
           </Switch>
-          <Footer/>
+          {/* <Footer/> */}
         </Container>
       </Router>
     </PlacesProvider>

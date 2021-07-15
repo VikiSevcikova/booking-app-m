@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import { BsHouseFill } from "react-icons/bs";
 import { FiLogOut } from "react-icons/fi";
 import { Navbar, Nav, Button, Modal, Form, Container } from "react-bootstrap";
 import FloatingLabel from "react-bootstrap-floating-label";

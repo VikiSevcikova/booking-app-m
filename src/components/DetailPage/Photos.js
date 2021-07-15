@@ -4,7 +4,6 @@ import './Detail.scss';
 import axios from "axios";
 import ImageGallery from 'react-image-gallery';
 import "react-image-gallery/styles/css/image-gallery.css";
-import { Carousel } from "react-bootstrap";
 
 function Photos(){
 
@@ -32,22 +31,9 @@ const fetchData = async () => {
 useEffect(() => {fetchData()},[])
 
   return (
-    <>
+    <div className="mt-5">
     {photos && <ImageGallery items={photos} thumbnailPosition={"left"} showPlayButton={false}/>}
-    {/* {photos && 
-      <Carousel>
-        {photos.map(photo => (
-          <Carousel.Item>
-            <img 
-              className="d-block w-100"
-              src={photo.original}
-              alt="hotel image"
-            />
-          </Carousel.Item>
-        ))}
-      </Carousel>
-    } */}
-    </>
+    </div>
   )
 }
 

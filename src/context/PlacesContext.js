@@ -5,6 +5,8 @@ export const PlacesContext = React.createContext();
 const today = new Date();
 const tomorrow = new Date(new Date().setDate(today.getDate() + 1));
 
+const DEFAULT_PRICE_NIGHT = 20;
+
 const initialState = {
   loading: false,
   places: null,
@@ -12,6 +14,7 @@ const initialState = {
   checkOut: tomorrow,
   adults: 1,
   children: 0,
+  priceOfSelectedStay: DEFAULT_PRICE_NIGHT,
   alert: { show: false,title: "", message: "", variant: "warning" },
 };
 
@@ -52,6 +55,11 @@ const reducer = (placesState, action) => {
       return {
         ...placesState,
         alert: { ...placesState.alert, message: action.payload.message, title: action.payload.title, variant: action.payload.variant ? action.payload.variant : "warning"},
+      };
+    case "CHANGE_PRICE":
+      return {
+        ...placesState,
+        priceOfSelectedStay: action.payload ? action.payload : DEFAULT_PRICE_NIGHT,
       };
     case "SHOW_ALERT":
       return {
