@@ -71,7 +71,7 @@ const NavBar = () => {
     <>
       {!isMobile ? (
         <Navbar collapseOnSelect expand="lg" variant="light">
-          <Navbar.Brand href="/" className="d-flex align-items-center">
+          <Navbar.Brand href="/booking-app-m" className="d-flex align-items-center">
             <h2>
               <BsHouseFill className="mx-1" />
             </h2>
@@ -114,7 +114,7 @@ const NavBar = () => {
           >
             <Container>
               <Nav>
-                <Nav.Link href="/">Home</Nav.Link>
+                <Nav.Link href="/booking-app-m">Home</Nav.Link>
               </Nav>
               <Nav>
                 {!loggedInUser ? (
