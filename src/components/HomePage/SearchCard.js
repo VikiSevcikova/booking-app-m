@@ -64,8 +64,17 @@ const SearchCard = () => {
       placesDispatch({type: 'CHANGE_PLACES', payload: places});
     } catch (error) {
       console.error(error);
+      placesDispatch({
+        type: "CHANGE_ALERT_MESSAGE",
+        payload: {title: "We're sorry", message: "Couldn't find any result."},
+      });
+      placesDispatch({ type: "SHOW_ALERT" });
+      return;
+    }finally{
+      placesDispatch({type: "LOADING"});
     }
   };
+
 
   const setGlobalVariables = () => {
     placesDispatch({ type: "CHANGE_CHECKIN", payload: checkIn });
@@ -136,7 +145,7 @@ const SearchCard = () => {
             />
           </Col>
           <Col lg className="align-items-end mt-2">
-            <Button type="submit" variant="info" style={{ width: "100%" }}>
+            <Button type="submit" variant="info" style={{ width: "100%" }} disabled={loading} >
               {loading ? 'Loading…' : 'Search'}
             </Button>
           </Col>

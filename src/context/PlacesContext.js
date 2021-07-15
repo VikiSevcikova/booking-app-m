@@ -23,13 +23,12 @@ const reducer = (placesState, action) => {
     case "LOADING":
       return {
         ...placesState,
-        loading: true
+        loading: !placesState.loading
       };
     case "CHANGE_PLACES":
       return {
         ...placesState,
-        places: action.payload,
-        loading: false
+        places: action.payload
       };
     case "CHANGE_CHECKIN":
       return {
